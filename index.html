@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equivalent String</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2rem;
+        }
+
+        body{    
+            background-image: linear-gradient(orange,purple);
+            background-attachment: fixed;
+        }
+
+        .heading{
+            width:100%;
+            background-color:rgb(1, 1, 168);
+            color:white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+            padding:0.2rem;
+            border-radius: 0.3rem;
+        }
+
+        .heading:hover{
+            color:blue;
+            background-color: rgb(159, 159, 252);
+        }
+        
+        .navbar{
+            width:100%;
+            background-color:blue ;
+            color:white;
+            padding:0.2rem;
+            margin-bottom: 0.4rem;
+            border-radius: 0.3rem;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .navbar:hover{
+            color:blue;
+            background-color: rgb(159, 159, 252);
+        }
+
+        ul li{
+            display: inline;
+        }
+
+        #li11{
+            float: left;
+        }
+
+        #li14{
+            float: right;
+        }
+
+        .box1{
+            width: 60%;
+            margin:2rem auto;
+            padding: 0.4rem;
+            text-align: center;
+            color:rgb(156, 37, 1);
+            font-weight: bold;
+            border: 0.2rem solid rgb(255, 60, 0);
+            background-color: rgb(250, 175, 156);
+            border-radius: 0.6rem;
+            box-shadow: 0.6rem 0.6rem 1rem rgb(248, 33, 248);
+        }
+
+        .box2{
+            width: 75%;
+            margin:2rem auto;
+            padding: 0.6rem;
+            text-align: center;
+            color:rgb(3, 148, 3);
+            border: 0.2rem solid rgb(3, 245, 3);
+            background-color: rgb(149, 253, 149);
+            border-radius: 0.6rem;
+            font-style: italic;
+            box-shadow: 0.6rem 0.6rem 1rem aqua;
+        }
+
+        .box3{
+            width: 75%;
+            margin:2rem auto;
+            padding: 0.6rem;
+            text-align: left;
+            color:rgb(2, 2, 143);
+            border: 0.2rem solid blue;
+            background-color: rgb(116, 202, 252);
+            border-radius: 0.6rem;
+            box-shadow: 0.6rem 0.6rem 1rem yellow;
+        }
+
+        .box1:hover{
+            color: rgb(141, 12, 3);
+            font-weight: bold;
+            font-size: 1.3rem;
+            background-color: rgb(255, 252, 252);
+            cursor: pointer;
+        }
+
+        .box2:hover{
+            color: rgb(3, 141, 14);
+            font-weight: bold;
+            font-size: 1.3rem;
+            background-color: rgb(255, 252, 252);
+            cursor: pointer;
+        }
+
+        .box3:hover{
+            color: rgb(32, 2, 165);
+            font-weight: bold;
+            font-size: 1.3rem;
+            background-color: rgb(255, 252, 252);
+            cursor: pointer;
+        }
+
+        .end{
+            color:blue;
+            background-color: rgb(253, 180, 43);
+            border: 0.2rem solid rgb(255, 115, 0);
+            border-radius: 0.6rem;
+            text-align: center;
+            padding:0.6rem;
+            margin:0.7rem;
+        }
+
+        .end:hover{
+            color:rgb(114, 28, 1);
+            text-decoration: underline;
+            background-color: rgb(247, 190, 237);
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+<body>
+    <header class="heading">
+        <h1>Equivalent String</h1>
+    </header>
+    <nav class="navbar">
+        <ul>
+            <li class="li1" id="li11">Searching</li>
+            <li class="li1" id="li12">Sorting</li>
+            <li class="li1" id="li14">Examples</li>
+        </ul>
+    </nav>
+    <section class="box1">
+       <h2 ><span >Equivalent String</span></h2>
+       <p>
+            Two string are said to be equivalent if they have same set of character 
+            and for each character if difference in frequency is not more than 3 .Then ,
+            Two string are said to be equivalent to each other. 
+       </p> 
+    </section>
+    <section class="box2">
+        <h2 class="h22">Logic</h2>
+        <p>
+            Here, to check two string we are going to make two array for storing 
+            frequency of each character .we are going to iterate for each charcter 
+            in the string and store in vector.the we will check in both araay if
+            both have frequency not differ by 3 and return our decision on this 
+            basis.
+        </p>
+    </section>
+    <section class="box3">
+        <h2 class="h22">Code</h2>
+        <p>            
+            bool checkAlmostEquivalent(string word1, string word2) {<br>
+                vector<int> w1,w2;<br>
+                int i,j,c,n=word1.length();<br>
+                char ch;<br>
+                for(i=0;i<26;i++){<br>
+                    w1.push_back(0);<br>
+                    w2.push_back(0);<br>
+                }<br>
+                j=0;<br>
+                for(ch='a';ch<='z';++ch){<br>
+                    i=0;<br>
+                    c=0;<br>
+                    while(word1[i]!='\0'){<br>
+                        if(word1[i]==ch){<br>
+                            c++;<br>
+                        }<br>
+                        i++;<br>
+                    }<br>
+                    w1[j]=c;<br>
+
+                    i=0;<br>
+                    c=0;<br>
+                    while(word2[i]!='\0'){<br>
+                        if(word2[i]==ch){<br>
+                            c++;<br>
+                        }<br>
+                        i++;<br>
+                    }<br>
+                    w2[j]=c;<br>
+                    j++;<br>
+                }<br>
+
+                for(i=0;i<26;i++){<br>
+                    c=(w1[i]-w2[i]);<br>
+                    if(c<0){<br>
+                        c=c*(-1);<br>
+                    }<br>
+
+                    if(c>3){<br>
+                        return false;<br>
+                    }<br>
+                }<br>
+                return true;<br>
+            }<br>
+        </p>
+    </section>
+    <footer class="end">
+        <div>Created by Shivam and Abhishek</div>
+    </footer>
+</body>
+</html>
